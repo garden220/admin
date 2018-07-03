@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin=require('extract-text-webpack-plugin')
 
@@ -10,8 +11,10 @@ module.exports = {
     output: {
         //打包路径
         path: path.resolve(__dirname, 'dist'),
+        //打包根目录
+        publicPath:'/dist/',
         //打包js文件名称
-        filename: 'app.js'
+        filename: 'js/app.js'
     },
 
     module: {
@@ -50,7 +53,21 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 8192
+                            limit: 8192,
+                            name:'resource/[name].[ext]'
+                        }
+                    }
+                ]
+            },
+            //字体配置
+            {
+                test: /\.(ttf|svg|eot|woff)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name:'resource/[name].[ext]'
                         }
                     }
                 ]
@@ -61,10 +78,18 @@ module.exports = {
     plugins: [
         //html加载器
         new HtmlWebpackPlugin(
-            //指定模板文件
+            //指定模板文件,处理html文件
             {template:'./src/index.html'}
             ),
-        //加载上css插件
-        new ExtractTextPlugin('index.css')
-    ]
+        //加载上css插件，处理css文件
+        new ExtractTextPlugin('css/[name].css'),
+        //提出公共模块
+        new webpack.optimize.CommonsChunkPlugin({
+            name:'common',
+            filename:'js/base.js'
+        })
+    ],
+    devServer:{
+        port:8066
+    }
 };
