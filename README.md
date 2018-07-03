@@ -5,7 +5,7 @@
 	git commit -m '备注'(把缓存区的文件添加到本地库)
 	
 	git remote add origin git@github.com/garden220/admin.git（在github创建新库，并在本地执行命令进行关联）
-	ssh-keygen  -t   rsa   -C  "243803545@qq.com"(密码：abcd888，在没有ssh密匙的情况下去目录底下配置，如果ssh不能配置，那么需要把ssh-keygen加到环境变量里，把密匙加到github中，并且在本地目录执行ssh -T git@github.com 下一步yes，关闭cmd，进入目录再次提交)
+	ssh-keygen  -t   rsa   -C  "243803545@qq.com"(在没有ssh密匙的情况下去目录底下配置，如果ssh不能配置，那么需要把ssh-keygen加到环境变量里，把密匙加到github中，并且在本地目录执行ssh -T git@github.com 下一步yes，关闭cmd，进入目录再次提交)
 	ssh -v git@github.com
 	git push -u origin master
 
