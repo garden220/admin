@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
+const path              = require('path');
+const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin=require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 
 module.exports = {
@@ -10,11 +10,18 @@ module.exports = {
     //打包配置
     output: {
         //打包路径
-        path: path.resolve(__dirname, 'dist'),
+        path:       path.resolve(__dirname, 'dist'),
         //打包根目录
-        publicPath:'/dist/',
+        publicPath: '/dist/',
         //打包js文件名称
-        filename: 'js/app.js'
+        filename:   'js/app.js'
+    },
+    //模块文件存放路径
+    resolve:{
+        alias:{
+            page:       path.resolve(__dirname, 'src/page'),
+            component:  path.resolve(__dirname, 'src/component')
+        }
     },
 
     module: {
@@ -71,6 +78,19 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.json$/,
+                use:[
+                    {
+                        loader: 'json-loader',
+                        options: {
+                            limit: 8192,
+                            name:'js/[name].[ext]'
+                        }
+                    }
+                ]
+
             }
         ]
     },
@@ -90,6 +110,11 @@ module.exports = {
         })
     ],
     devServer:{
-        port:8066
+        //端口
+        port:8066,
+        //404页面
+        historyApiFallback:{
+            index:'/dist/index.html'
+        }
     }
 };
