@@ -79,6 +79,7 @@ module.exports = {
                     }
                 ]
             },
+            //json配置
             {
                 test: /\.json$/,
                 use:[

@@ -42,3 +42,6 @@
 15、npm install react-router-dom
 
 16、还是乖乖的用npm吧，用yarn不在package.json里放版本，后面会出错
+
+react-redux todoList官方实例
+https://codesandbox.io/s/github/reactjs/redux/tree/master/examples/todos

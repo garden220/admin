@@ -4,12 +4,7 @@ import Onemenu from "./onemenu.jsx";
 import Twomenu from "./twomenu.jsx";
 
 
-var stuJson = require('component/nav-side/menudata.json');
-/*
-$("#main_left").css("height", document.documentElement.clientHeight - 59);
-$(".main-div").css("height", document.documentElement.clientHeight - 86);
-$("#main_frame").css("height", document.documentElement.clientHeight - 86);
-$(".menu-item").css("height", document.documentElement.clientHeight - 59);*/
+let stuJson = require('component/nav-side/menudata.json');
 
 let leftClassData={
     mainLeft:'main-left'
