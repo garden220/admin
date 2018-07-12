@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 
-let imgURL= require('component/layout/images/admin-out.png');
+let imgURL= require('components/layout/images/admin-out.png');
 
 class Home extends React.Component{
 
