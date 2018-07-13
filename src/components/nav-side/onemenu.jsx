@@ -14,7 +14,7 @@ class Onemenu extends React.Component {
                 <div className="catList">
                     <ul className="clearfix">
                         {this.props.datas.map((item)=><li className="J_MenuItem" key={item.key}>
-                                <div className={"itemmain-"+item.key} onMouseOver={()=>this.props.handletwoShow('block',item.key)} onMouseLeave={()=>this.props.handletwohid('none')}><Link to="#">{item.name}</Link></div>
+                                <div className={"itemmain-"+item.key} onMouseOver={()=>this.props.handletwoShow('block',item.key)} onMouseLeave={()=>this.props.handletwohid('none')}><Link to="/list">{item.name}</Link></div>
                             </li>
                         )}
                     </ul>
